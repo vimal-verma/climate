@@ -2,9 +2,21 @@ require('newrelic');
 const express = require('express');
 
 const app = express()
+app.set('view engine', 'ejs');
+app.use(express.static('public'))
 
 app.get('/',(req,res)=>{
-    res.send('hi this is vimal')
+    res.render('index')
 })
 
-app.listen('5500',()=>{console.log("server is running at 5500")})
+
+
+app.get('/contact', (req, res) => res.send('Contact Page Route'));
+
+
+
+app.get('*', (req, res)=> res.redirect('/'));
+
+const port = process.env.PORT || 3000;
+
+app.listen(port, () => console.log(`Server running on ${port}, http://localhost:${port}`));

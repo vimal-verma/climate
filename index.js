@@ -13,7 +13,7 @@ app.get('/',(req,res)=>{
 
 
 
-app.get('/contact', (req, res) => res.send('Contact Page Route'));
+app.get('/about', (req, res) => res.render('about'));
 
 
 

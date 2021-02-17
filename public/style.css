@@ -289,109 +289,144 @@ background: #fff;
 
 
 
-
-/****************************************************** timeline **************************************/
-
+/****************************************************** video **************************************/
 
 
 
-*,
-*::before,
-*::after {
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+*
+{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
-
-h1 {
-  text-align:center;
-  font-size: 40px;
+header
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 40px 100px;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
 }
-
-.time ul {
-  padding: 50px 0;
-}
-
-.time ul li {
-  position:relative;
-  list-style-type: none;
-  width: 6px;
-  background-color: rgb(245, 94, 94);
-  margin: 0 auto;
-  padding-top: 50px;
-}
-
-.time ul li::after {
-  background: rgb(129, 199, 0);
-  content: '';
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  position:absolute;
-  left:50%;
-  transform: translateX(-50%);
-  bottom: 0;
-  }
-
-
-  .time ul li div{
+header .logo
+{
   position: relative;
-  width: 400px;
-  padding: 15px;
-  border-radius: 5px;
-  bottom: 0;
-  background: rgba(42,50,113, .28);
+  right: -100px;
+  font-size: 5em;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1em;
+  text-transform: uppercase;
+}
+a{
+  font-weight: 800;
+  color: #fff;
+  line-height: 1em;
+  text-decoration: none;
+}
+.showcase
+{
+  position: relative;
+  right: 0;
+  width: 100%;
+  min-height: 100vh;
+  padding: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #111;
+  transition: 0.5s;
+  z-index: 2;
+}
+.showcase .active
+{
+  right: 300px;
 }
 
-.time ul li:nth-child(odd) div {
-  left: 45px;
+.showcase video
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+}
+.text
+{
+  position: relative;
+  z-index: 10;
 }
 
-.time ul li:nth-child(even) div {
-  left: -445px;
+.text h2
+{
+  font-size: 5em;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1em;
+  text-transform: uppercase;
+}
+.text h3
+{
+  font-size: 4em;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1em;
+  text-transform: uppercase;
+}
+.text p
+{
+  font-size: 1.1em;
+  color: #fff;
+  margin: 20px 0;
+  font-weight: 400;
+  max-width: 700px;
+}
+.text a
+{
+  display: inline-block;
+  font-size: 1em;
+  background: #fff;
+  padding: 10px 30px;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 500;
+  margin-top: 10px;
+  color: #111;
+  letter-spacing: 2px;
+  transition: 0.2s;
+}
+.text a:hover
+{
+  letter-spacing: 6px;
 }
 
-time {
-  font-weight: bold;
-  font-size: 18px;
-  display: block;
-  margin-bottom: 10px;
-}
-
-.time ul li div {
-  visibility: hidden;
-  opacity: 0;
-  transition: all .5s ease-in-out;
-}
-
-.time ul li:nth-child(odd) div {
-  transform: translate3d(200px, 0, 0);
-}
-
-.time ul li:nth-child(even) div {
-  transform: translate3d(-200px, 0, 0);
-}
-
-.time ul li.show div {
-  transform: none;
-  visibility: visible;
-  opacity: 1;
-}
-
-@media screen and (max-width: 900px) {
-  .time ul li div {
-    width: 200px;
+@media (max-width: 991px)
+{
+  .showcase,
+  .showcase header
+  {
+    padding: 40px;
   }
-  .time ul li:nth-child(even) div {
-    left: 45px;
-    /*250+45-6*/
+  .text h2
+  {
+    font-size: 3em;
   }
-  .time ul li {
-    position:relative;
-    list-style-type: none;
-    width: 6px;
-    background-color: rgb(245, 94, 94);
-    margin: 20px;
-    padding-top: 50px;
+  .text h3
+  {
+    font-size: 2em;
+  }
+  header .logo
+  {
+  right: 0px;
   }
 }
+
+/****************************************************** video **************************************/

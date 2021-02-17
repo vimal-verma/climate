@@ -3,90 +3,27 @@
   <head>
     <%- include('components/head.ejs'); -%>
     <title>Covaccine Scheduler</title>
-    <style>
-      .button {
-        text-decoration: none;
-        padding: 10px;
-        position: relative;
-        right: -40%;
-      }
-      @media only screen and (max-width: 1000px) {
-        .button {
-          right: 0%;
-        }
-      }
-    </style>
   </head>
-  <body style="text-align: center">
+  <body>
     <%- include('components/header.ejs'); -%>
 
-    <div class="home">
-      <div class="text left">
-        <h1>Get your Vaccination Appointment Number and Date</h1>
-        <a class="card icon-box button" href="/register"
-          ><h3><i>Register</i></h3></a
-        >
+
+    <section class="showcase">
+      <video src="./nasa.mp4" muted loop autoplay></video>
+      <div class="text">
+        <h2>Never Stop To </h2> 
+        <h3>Exploring The World</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat.</p>
+        <a href="#">Explore</a>
       </div>
-      <img class="img right" src="/img/covid.png" alt="covid" />
+    </section>
+
+    <div class="social">
+      <h1>Vimal</h1>
     </div>
-    <br />
-    <br />
-
-
-
-
-    <h1>Vaccination Timeline</h1>
-    <p><em>Covaccine Scheduler</em> is the digital solution for vaccination drive, it
-      doesn't work on first come, first serve idea, rather it works on the
-      idea "who needs vaccination first?". <br />
-      Vaccination drive will be phase-wise, details of which are described
-      below. <br /></p>
-    <div class="time">
-      <ul>
-        <li>
-          <div>
-            <time>Phase 1</time>
-            <h5>Healthcare Personnel. </h5>
-            <p>Frontline essential employees working in various government departments.</p>
-          </div>
-        </li>
-        <li>
-          <div>
-            <time>Phase 2</time>
-            <p>People aged 75 years or above because they are at high risk of hospitalization, illness, and death due to COVID-19.</p>
-          </div>
-        </li>
-        <li>
-          <div>
-            <time>Phase 3</time>
-            <p>People aged 65—74 years because they are at high risk of hospitalization, illness, and death due to COVID-19. </p>
-          </div>
-        </li>
-        <li>
-          <div>
-            <time>Phase 4</time>
-            <p>People aged 16—64 years with underlying medical conditions which increase the risk of serious, life-threatening complications from COVID-19.</p>
-          </div>
-        </li>
-        <li>
-          <div>
-            <time>Phase 5</time>
-            <p>Other essential workers, such as people who work in transportation and logistics, food service, housing construction and finance, information technology, communications, energy, law, media, public safety, and public health.</p>
-          </div>
-        </li>
-        <li>
-          <div>
-            <time>Phase 6</time>
-            <p>Rest of the citizens.</p>
-          </div>
-        </li>
-      </ul>
-      
-    </div>
-
-
-
-
     <br />
     <%- include('components/footer.ejs'); -%>
 
@@ -97,31 +34,13 @@
       crossorigin="anonymous"
     ></script>
     <script>
-      var items = document.querySelectorAll("li");
+       const menuToggle = document.querySelector('.toggle');
+      const showcase = document.querySelector('.showcase');
 
-function isItemInView(item){
-  var rect = item.getBoundingClientRect();
-  return (
-      rect.top >= 0 &&
-      rect.left >= 0 &&
-      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
-}
-
-function callbackFunc() {
-    for (var i = 0; i < items.length; i++) {
-      if (isItemInView(items[i])) {
-        items[i].classList.add("show");
-      }
-    }
-  }
-
-  // listen for events
-  window.addEventListener("load", callbackFunc);
-  window.addEventListener("resize", callbackFunc);
-  window.addEventListener("scroll", callbackFunc);
-
+      menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        showcase.classList.toggle('active');
+      })
     </script>
   </body>
 </html>

@@ -1,2 +1,3 @@
 node_modules
 .vercel
+newrelic_agent.log

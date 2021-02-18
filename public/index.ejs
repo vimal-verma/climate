@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <%- include('components/head.ejs'); -%>
-    <title>Covaccine Scheduler</title>
+    <title>Stop burning yourself.</title>
   </head>
   <body>
     <%- include('components/header.ejs'); -%>
@@ -11,18 +11,28 @@
     <section class="showcase">
       <video src="./nasa.mp4" muted loop autoplay></video>
       <div class="text">
-        <h2>Never Stop To </h2> 
-        <h3>Exploring The World</h3>
-        <p>Climate Change is very big issue we can minimaze  it by share data and knowladge Climate Change is very big issue we can minimaze  it by share data and knowladge Climate Change is very big issue we can minimaze  it by share data and knowladge Climate Change is very big issue we can minimaze  it by share data and knowladge.</p>
-        <a href="#">Explore</a>
+        <h3>Be cool and let the</h3> 
+        <h2>earth be cool</h2>
+        <p>Over the past 50 years, the average global temperature has increased at the fastest rate in recorded history. And experts see the trend is accelerating: All but one of the 16 hottest years in NASA’s 134-year record have occurred since 2000.</p>
+        <a href="#sccond">Explore</a>
       </div>
     </section>
 
-    <div class="social">
-      <h1>Vimal</h1>
+    <div id="sccond" class="sccond">
+      <%- include('components/imagec.ejs'); -%>
+      <br>
+      <br>
+      <h1 style="color: white;">Take some quiz</h1>
+
+      <iframe src="https://climate.nasa.gov/quizzes/carbon-quiz/" width="916" height="620"></iframe>
+      <iframe src="https://climate.nasa.gov/quizzes/global-temp-quiz/" width="916" height="620"></iframe>
+
+      <br>
+      <br>
+      <br>
+    <%- include('components/footer.ejs'); -%>
     </div>
     <br />
-    <%- include('components/footer.ejs'); -%>
 
     <!--JavaScript - Bootstrap Bundle with Popper -->
     <script

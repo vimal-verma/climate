@@ -68,64 +68,6 @@
     user-select: none;
   }
   
-  .header .menu-icon .navicon {
-    background: #333;
-    display: block;
-    height: 2px;
-    position: relative;
-    transition: background 0.2s ease-out;
-    width: 18px;
-  }
-  
-  .header .menu-icon .navicon:before,
-  .header .menu-icon .navicon:after {
-    background: #333;
-    content: "";
-    display: block;
-    height: 100%;
-    position: absolute;
-    transition: all 0.2s ease-out;
-    width: 100%;
-  }
-  
-  .header .menu-icon .navicon:before {
-    top: 5px;
-  }
-  
-  .header .menu-icon .navicon:after {
-    top: -5px;
-  }
-  
-  /* menu btn */
-  
-  .header .menu-btn {
-    display: none;
-  }
-  
-  .header .menu-btn:checked ~ .menu {
-    max-height: 370px;
-  }
-  
-  .header .menu-btn:checked ~ .menu-icon .navicon {
-    background: transparent;
-  }
-  
-  .header .menu-btn:checked ~ .menu-icon .navicon:before {
-    transform: rotate(-45deg);
-  }
-  
-  .header .menu-btn:checked ~ .menu-icon .navicon:after {
-    transform: rotate(45deg);
-  }
-  
-  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
-  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
-    top: 0;
-  }
-  .logo img{
-    width: 150px;
-  }
-  
   /* 48em = 768px */
   
   @media (min-width: 48em) {
@@ -286,8 +228,19 @@ background: #fff;
   text-align: center;
 }
 
+body{
+  background-color: #030303;
+}
+.sccond{
+  background-color: #030303;
+  text-align: center;
+  padding: 50px;
+  margin: 50;
+}
 
-
+.footer{
+  color: white;
+}
 
 /****************************************************** video **************************************/
 
@@ -430,3 +383,39 @@ a{
 }
 
 /****************************************************** video **************************************/
+/****************************************************** image Comparison **************************************/
+
+
+* {box-sizing: border-box;}
+
+.img-comp-container {
+  position: relative;
+  height: 700px; /*should be the same height as the images*/
+  margin: 100px auto;
+}
+
+.img-comp-img {
+  position: absolute;
+  width: auto;
+  height: auto;
+  overflow: hidden;
+}
+
+.img-comp-img img {
+  display: block;
+  vertical-align: middle;
+}
+
+.img-comp-slider {
+  position: absolute;
+  z-index: 9;
+  cursor: ew-resize;
+  /*set the appearance of the slider:*/
+  width: 40px;
+  height: 40px;
+  background-color: #2196F3;
+  opacity: 0.7;
+  border-radius: 50%;
+}
+
+/****************************************************** image Comparison **************************************/

@@ -57,6 +57,10 @@
     img.style.width = (w / 2) + "px";
     /* Create slider: */
     slider = document.createElement("DIV");
+    slidericon = document.createElement("i");
+    slider.appendChild(slidericon)
+    slidericon.setAttribute("class", "fas fa-arrows-alt-h cent");
+    slidericon.style.color = "white"
     slider.setAttribute("class", "img-comp-slider");
     /* Insert slider */
     img.parentElement.insertBefore(slider, img);

@@ -286,8 +286,8 @@ a{
 .showcase
 {
   position: relative;
-  right: 0;
-  width: 100%;
+  right: -5%;
+  width: 90%;
   min-height: 100vh;
   padding: 100px;
   display: flex;
@@ -423,5 +423,11 @@ a{
   opacity: 0.7;
   border-radius: 50%;
 }
-
+.cent{
+  position: relative;
+  top: 7px;
+  background-color: red;
+  padding: 3px;
+  border-radius: 5px;
+}
 /****************************************************** image Comparison **************************************/

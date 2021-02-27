@@ -190,44 +190,6 @@ background: #fff;
 }
 
 /*********************************************************************************** normal ***************************************************************************/
-.home{
-  display: flex;
-}
-.text{
-  position: relative;
-  top: 100px;
-  width: 60%;
-}
-.img{
-  width: 30%;
-}
-
-
-@media only screen and (max-width: 1000px) {
-  .home{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-  }
-  .text{
-    top: 0px;
-    width: 90%;
-  }
-  .img{
-    width: 75%;
-  }
-}
-
-.info{
-    margin-left: 10px;
-    text-align: left;
-}
-
-.clarification{
-  text-align: center;
-}
-
 body{
   background-color: #030303;
 }
@@ -237,11 +199,30 @@ body{
   padding: 50px;
   margin: 50;
 }
+.text{
+  width: 50%;
+  margin-top: 50px;
+  padding: 5px;
+}
+.img{
+  width: 40%;
+}
+.img img{
+  border-radius: 100%;
+}
 
 .footer{
   color: white;
 }
 
+@media only screen and (max-width: 800px) {
+  .text{
+    width: 90%;
+  }
+  .img{
+    width: 90%
+  }
+}
 /****************************************************** video **************************************/
 
 

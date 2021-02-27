@@ -1,12 +1,13 @@
 <h1 style="color: aliceblue;">Slide the Slider to compare Images</h1>
 <div class="full-container">
   <h1>global temperature</h1>
-  <div class="img-comp-container">
-    <div class="img-comp-img">
-      <img src="/img/2020.png" width="auto" height="400">
-    </div>
-    <div class="img-comp-img img-comp-overlay">
-      <img src="/img/1964.png" width="auto" height="400">
+  <div class="comparison-container">
+    <img src="/img/2020.png" width="auto" height="400" alt="marioPhoto 2" />
+    <div class="caption">2020</div>
+  
+    <div class="comparison-lhs">
+      <img src="/img/1964.png" width="auto" height="400" alt="marioPhoto 1" />
+      <div class="caption">1964</div>
     </div>
   </div>
   <p>Dark blue indicates areas cooler than average. Dark red indicates areas warmer than average.</p>
@@ -14,121 +15,113 @@
 
 <div class="full-container">
   <h1>Arctic sea-ice coverage hits record low</h1>
-    <div class="img-comp-container">
-    <div class="img-comp-img">
-      <img src="/img/Arctic2012.jpg" width="auto" height="400">
+  <div class="comparison-container">
+    <img  src="/img/Arctic2012.jpg" width="auto" height="400" alt="marioPhoto 2" />
+    <div class="caption">2012</div>
+  
+    <div class="comparison-lhs">
+      <img src="/img/Arctic1984.jpg" width="auto" height="400" alt="marioPhoto 1" />
+      <div class="caption">1984</div>
     </div>
-    <div class="img-comp-img img-comp-overlay">
-      <img src="/img/Arctic1984.jpg" width="auto" height="400">
-    </div>
-</div>
+   </div>
+<p>hi</p>
 </div>
 
 <div class="full-container">
   <h1>Arctic sea ice declines</h1>
-    <div class="img-comp-container">
-    <div class="img-comp-img">
-      <img src="/img/ice2016.jpg" width="auto" height="400">
+  <div class="comparison-container">
+    <img  src="/img/ice2016.jpg" width="auto" height="400" alt="marioPhoto 2" />
+    <div class="caption">2016</div>
+  
+    <div class="comparison-lhs">
+      <img src="/img/ice1984.jpg" width="auto" height="400" alt="marioPhoto 1" />
+      <div class="caption">1984</div>
     </div>
-    <div class="img-comp-img img-comp-overlay">
-      <img src="/img/ice1984.jpg" width="auto" height="400">
-    </div>
-</div>
+   </div>
 <p>The area covered by Arctic sea ice at least four years old has decreased from 718,000 square miles (1,860,000 square kilometers) in September 1984 to 42,000 square miles (110,000 square kilometers) in September 2016. </p>
 </div>
+
+
 <div class="full-container">
   <h1>Carbon Dioxide</h1>
-    <div class="img-comp-container">
-    <div class="img-comp-img">
-      <img src="/img/co2-2016.png" width="auto" height="400">
+  <div class="comparison-container">
+    <img  src="/img/co2-2016.png" width="auto" height="400" alt="marioPhoto 2" />
+    <div class="caption">2016</div>
+  
+    <div class="comparison-lhs">
+      <img src="/img/co2-2002.png" width="auto" height="400" alt="marioPhoto 1" />
+      <div class="caption">2002</div>
     </div>
-    <div class="img-comp-img img-comp-overlay">
-      <img src="/img/co2-2002.png" width="auto" height="400">
-    </div>
-</div>
+   </div>
+<p>gi</p>
 </div>
 
 <script>
-  function initComparisons() {
-  var x, i;
-  /* Find all elements with an "overlay" class: */
-  x = document.getElementsByClassName("img-comp-overlay");
-  for (i = 0; i < x.length; i++) {
-    /* Once for each "overlay" element:
-    pass the "overlay" element as a parameter when executing the compareImages function: */
-    compareImages(x[i]);
-  }
-  function compareImages(img) {
-    var slider, img, clicked = 0, w, h;
-    /* Get the width and height of the img element */
-    w = img.offsetWidth;
-    h = img.offsetHeight;
-    /* Set the width of the img element to 50%: */
-    img.style.width = (w / 2) + "px";
-    /* Create slider: */
-    slider = document.createElement("DIV");
-    slidericon = document.createElement("i");
-    slider.appendChild(slidericon)
-    slidericon.setAttribute("class", "fas fa-arrows-alt-h cent");
-    slidericon.style.color = "white"
-    slider.setAttribute("class", "img-comp-slider");
-    /* Insert slider */
-    img.parentElement.insertBefore(slider, img);
-    /* Position the slider in the middle: */
-    slider.style.top = (h / 2) - (slider.offsetHeight / 2) + "px";
-    slider.style.left = (w / 2) - (slider.offsetWidth / 2) + "px";
-    /* Execute a function when the mouse button is pressed: */
-    slider.addEventListener("mousedown", slideReady);
-    /* And another function when the mouse button is released: */
-    window.addEventListener("mouseup", slideFinish);
-    /* Or touched (for touch screens: */
-    slider.addEventListener("touchstart", slideReady);
-     /* And released (for touch screens: */
-    window.addEventListener("touchend", slideFinish);
-    function slideReady(e) {
-      /* Prevent any other actions that may occur when moving over the image: */
-      e.preventDefault();
-      /* The slider is now clicked and ready to move: */
-      clicked = 1;
-      /* Execute a function when the slider is moved: */
-      window.addEventListener("mousemove", slideMove);
-      window.addEventListener("touchmove", slideMove);
-    }
-    function slideFinish() {
-      /* The slider is no longer clicked: */
-      clicked = 0;
-    }
-    function slideMove(e) {
-      var pos;
-      /* If the slider is no longer clicked, exit this function: */
-      if (clicked == 0) return false;
-      /* Get the cursor's x position: */
-      pos = getCursorPos(e)
-      /* Prevent the slider from being positioned outside the image: */
-      if (pos < 0) pos = 0;
-      if (pos > w) pos = w;
-      /* Execute a function that will resize the overlay image according to the cursor: */
-      slide(pos);
-    }
-    function getCursorPos(e) {
-      var a, x = 0;
-      e = e || window.event;
-      /* Get the x positions of the image: */
-      a = img.getBoundingClientRect();
-      /* Calculate the cursor's x coordinate, relative to the image: */
-      x = e.pageX - a.left;
-      /* Consider any page scrolling: */
-      x = x - window.pageXOffset;
-      return x;
-    }
-    function slide(x) {
-      /* Resize the image: */
-      img.style.width = x + "px";
-      /* Position the slider: */
-      slider.style.left = img.offsetWidth - (slider.offsetWidth / 2) + "px";
-    }
-  }
-} 
+(function() {
+	"use strict";
 
-initComparisons();
+	function $$(selector) {
+		return Array.from(document.querySelectorAll(selector));
+	}
+
+	function syncSize(master, slave) {
+		slave.style.width = master.clientWidth + 'px';
+	}
+
+	function getMouseX(parent, e) {
+		const bounds = parent.getBoundingClientRect(),
+			  x = e.clientX - bounds.left;
+		return { x, width: bounds.width };
+	}
+
+	function initComparer(lhs) {
+		const container = lhs.closest('.comparison-container'),
+			  splitPos = lhs.dataset.comparisonSplitter;
+		let dragOffset;
+
+		//Lock the compared element's width to the original width:
+		window.addEventListener('load', e => syncSize(container, lhs));
+		window.addEventListener('resize', e => syncSize(container, lhs));
+		syncSize(container, lhs);
+
+		//Put the compared element into a resizable wrapper:
+		const lhsWrapper = container.appendChild(document.createElement('div'));
+		lhsWrapper.classList.add('comparison-lhs-wrapper');
+		lhsWrapper.appendChild(lhs);
+
+		const dragger = container.appendChild(document.createElement('div'));
+		dragger.classList.add('comparison-dragger');
+
+		if(splitPos) {
+			lhsWrapper.style.width = dragger.style.left = splitPos;
+		}
+		
+		//Dragging magic:
+		dragger.onmousedown = (e) => {
+			e.preventDefault();
+			dragOffset = getMouseX(dragger, e);
+			//console.log(lhs, dragOffset)
+		};
+		container.addEventListener('mousemove', e => {
+			if(dragOffset) {
+				if(e.buttons === 1) {
+					e.preventDefault();
+
+					const newX = getMouseX(container, e),
+						  relX = (newX.x - dragOffset.x) / newX.width;
+					lhsWrapper.style.width = dragger.style.left = (Math.max(0, Math.min(relX, 1)) * 100) + '%';
+				}
+				else {
+					dragOffset = undefined;
+				}
+			}
+		});
+	}
+
+	function init() {
+		$$('.comparison-lhs').forEach(initComparer);
+	}
+
+	init();
+})();
 </script>
